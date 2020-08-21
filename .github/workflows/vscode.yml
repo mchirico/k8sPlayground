@@ -22,7 +22,7 @@ jobs:
         echo 'complete -F __start_kubectl k' >>/home/runner/.bashrc
         echo 'PATH="${PATH}:${HOME}/.krew/bin"'>>/home/runner/.bashrc
         sudo -i -u runner ${GITHUB_WORKSPACE}/install_krew.sh 
-        git clone https://github.com/TacoMonk/dotfiles.git
+        git clone https://github.com/mchirico/dotfiles.git
         cd dotfiles/
         make kind
         make gitKind
