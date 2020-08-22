@@ -38,7 +38,7 @@ jobs:
       run: |
         mkdir -p /home/runner/gopath
         export GOPATH=/home/runner/gopath
-        export GOBIN=/home/runner/gobin
+        export GOBIN=/home/runner/gopath/bin
         cd $GOPATH/src/k8s.io/kubernetes/cmd/kubectl && go build
         cd $GOPATH/src/k8s.io/kubernetes/cmd/kubeadm && go build
         sudo cp $GOBIN/kubectl /usr/bin/kubectl
