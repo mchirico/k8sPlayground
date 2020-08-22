@@ -17,11 +17,15 @@ jobs:
 
     - name: kubectl
       run: |
+        mkdir -p /home/runner/gopath
+        echo 'export GOPATH=/home/runner/gopath' >>~/.bashrc
+        echo 'export GOBIN=/home/runner/gopath/bin' >>~/.bashrc
         echo 'source <(kubectl completion bash)' >>~/.bashrc
         echo 'alias k=kubectl' >>/home/runner/.bashrc
         echo 'complete -F __start_kubectl k' >>/home/runner/.bashrc
         echo 'PATH="${PATH}:${HOME}/.krew/bin"'>>/home/runner/.bashrc
         sudo -i -u runner ${GITHUB_WORKSPACE}/install_krew.sh 
+        
         git clone https://github.com/mchirico/dotfiles.git
         cd dotfiles/
         make kind
