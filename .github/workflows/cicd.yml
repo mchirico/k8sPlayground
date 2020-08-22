@@ -36,6 +36,7 @@ jobs:
   
     - name: build tools from source
       run: |
+        . /home/runnner/.bashrc
         cd $GOPATH/src/k8s.io/kubernetes/cmd/kubectl && go build
         cd $GOPATH/src/k8s.io/kubernetes/cmd/kubeadm && go build
         sudo cp $GOBIN/kubectl /usr/bin/kubectl
