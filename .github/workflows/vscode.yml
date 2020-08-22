@@ -15,7 +15,7 @@ jobs:
     - uses: actions/checkout@v2
       
 
-    - name: kubectl
+    - name: build kubernetes
       run: |
         mkdir -p /home/runner/gopath
         echo 'export GOPATH=/home/runner/gopath' >>~/.bashrc
@@ -33,6 +33,13 @@ jobs:
         cd kind
         make cert-manager-v1.19 
   
+  
+    - name: build tools from source
+      run: |
+        cd $GOPATH/src/k8s.io/kubernetes/cmd/kubectl && go build
+        cd $GOPATH/src/k8s.io/kubernetes/cmd/kubeadm && go build
+        sudo cp $GOBIN/kubectl /usr/bin/kubectl
+ 
   
     - name: extra utils
       run: |
