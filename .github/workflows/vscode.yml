@@ -27,7 +27,7 @@ jobs:
         make kind
         make gitKind
         cd kind
-        make cert-manager 
+        make cert-manager-v1.19 
   
   
     - name: extra utils
