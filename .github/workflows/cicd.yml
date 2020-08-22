@@ -1,4 +1,4 @@
-name: Sample Test Run with vscode
+name: Run with code-server
 
 on:
   push:
